@@ -1,10 +1,11 @@
 module.exports = {
   entry: './main.js',
   output: {
-    path: './',
+    path: './static',
     filename: 'index.js',
   },
   devServer: {
+    contentBase: './static',
     inline: true,
     port: 3333,
 
@@ -20,6 +21,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
 
 }

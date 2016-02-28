@@ -3,9 +3,9 @@ import Task from './Task'
 
 const TaskList = (props) => {
   const tasks = props.tasks.map((task) => {
-    return <Task title={task.title} key={task.title}/>
+    return <li key={task.title}><Task title={task.title} /></li>
   })
-  return <div>{tasks}</div>
+  return <div><ul>{tasks}</ul></div>
 }
 
 export default TaskList

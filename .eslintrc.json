@@ -1,0 +1,10 @@
+{
+    "extends": "standard",
+    "plugins": [
+        "standard"
+    ],
+    "rules": {
+        "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],
+        "comma-dangle": [0]
+    }
+}
