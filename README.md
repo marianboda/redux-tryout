@@ -1,1 +1,1 @@
-# siren2
+# Redux tryout project
