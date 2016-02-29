@@ -5,6 +5,7 @@
     ],
     "rules": {
         "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],
-        "comma-dangle": [0]
+        "comma-dangle": [0],
+        "space-before-function-paren": [0, "never"]
     }
 }
