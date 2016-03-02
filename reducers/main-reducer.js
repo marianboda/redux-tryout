@@ -1,4 +1,4 @@
-import { ADD_TASK } from '../actions'
+import { ADD_TASK, DELETE_TASK } from '../actions'
 
 const initialState = {
   tasks: [
@@ -9,13 +9,18 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === ADD_TASK) {
-    let newTasks = state.tasks.map((i) => i)
-    const newId = newTasks.length + 1
-    newTasks.push({id: newId, title: `${action.title} ${newId}`})
-    return { tasks: newTasks }
-  } else {
-    return state
+  switch (action.type) {
+    case ADD_TASK:
+      let newTasks = state.tasks.map((i) => i)
+      const newId = newTasks.length + 1
+      newTasks.push({id: newId, title: `${action.title} ${newId}`})
+      return { tasks: newTasks }
+    case DELETE_TASK:
+      return Object.assign({},
+        { tasks: state.tasks.filter((i) => i.id !== action.id) }
+      )
+    default:
+      return state
   }
 }
 
