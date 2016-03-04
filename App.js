@@ -1,7 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import TaskList from './components/TaskList'
 import { addTask, deleteTask } from './actions'
-import { connect } from 'react-redux'
 
 const mapState = (state) => {
   return {
@@ -27,10 +28,15 @@ class App extends React.Component {
   }
   render () {
     return <div>
+        <ul>
+          <li><Link to="/tasks">Tasks</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
+        </ul>
         <h1>Tasks</h1>
         <TaskList tasks={this.props.tasks} deleteTask={this.props.deleteTask} />
         <button onClick={() => this.props.addTask(this.state.text)}>ADD</button>
         <input type="text" value={this.state.text} onChange={this.textChange.bind(this)}/>
+        {this.props.children}
       </div>
   }
 }
