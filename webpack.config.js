@@ -8,6 +8,7 @@ module.exports = {
     contentBase: './static',
     inline: true,
     port: 3333,
+    historyApiFallback: true,
 
   },
   module: {
