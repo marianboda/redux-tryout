@@ -11,17 +11,26 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    addTask: (name) => { dispatch(addTask('a')) },
+    addTask: (name) => { dispatch(addTask(name)) },
     deleteTask: (id) => { dispatch(deleteTask(id)) }
   }
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {text: 'tsk'}
+  }
+  textChange(event) {
+    console.log('this', this)
+    this.setState({text: event.target.value})
+  }
   render () {
     return <div>
         <h1>Tasks</h1>
         <TaskList tasks={this.props.tasks} deleteTask={this.props.deleteTask} />
-        <button onClick={this.props.addTask}>ADD</button>
+        <button onClick={() => this.props.addTask(this.state.text)}>ADD</button>
+        <input type="text" value={this.state.text} onChange={this.textChange.bind(this)}/>
       </div>
   }
 }
