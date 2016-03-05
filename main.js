@@ -13,7 +13,7 @@ ReactDOM.render(
     <div>
       <Router history={browserHistory}>
         <Route path="/" component={App}>
-          <Route path="tasks" component={TasksPage} />
+          <Route path="tasks(/:id)" component={TasksPage} />
           <Route path="projects" component={ProjectsPage} />
         </Route>
       </Router>
