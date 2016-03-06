@@ -1,6 +1,11 @@
 import { ADD_TASK, DELETE_TASK } from '../actions'
 
 const initialState = {
+  projects: [
+    {id: 1, title: 'Project 1'},
+    {id: 2, title: 'ProjectMan 5'},
+    {id: 3, title: 'Siren'}
+  ],
   tasks: [
     {id: 1, title: 'task 1'},
     {id: 2, title: 'task 2'},

@@ -1,7 +1,19 @@
 import React from 'react'
+import ProjectsList from '../components/ProjectsList'
+import { connect } from 'react-redux'
 
-const ProjectsPage = (props) => {
-  return <h1>Projects Page</h1>
+const mapState = (state) => {
+  return {
+    projects: state.projects
+  }
 }
 
-export default ProjectsPage
+const mapDispatch = (dispatch) => {
+  return {}
+}
+
+const ProjectsPage = (props) => {
+  return <ProjectsList projects={props.projects}/>
+}
+
+export default connect(mapState, mapDispatch)(ProjectsPage)
