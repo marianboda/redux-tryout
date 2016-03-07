@@ -14,6 +14,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+  console.log('REDUCING: ', action)
   switch (action.type) {
     case ADD_TASK:
       let newTasks = state.tasks.map((i) => i)

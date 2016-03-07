@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import { fetchData } from './actions'
 
 const liStyle = {
   display: "inline",
@@ -7,7 +9,17 @@ const liStyle = {
   cursor: "pointer",
 }
 
+const mapState = (state) => { return {} }
+const mapDispatch = (dispatch) => {
+  return {
+    fetchData: () => dispatch(fetchData())
+  }
+}
+
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchData()
+  }
   render () {
     return <div>
         <ul>
@@ -19,4 +31,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default connect(mapState, mapDispatch)(App)
