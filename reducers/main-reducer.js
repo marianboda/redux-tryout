@@ -1,4 +1,5 @@
-import { ADD_TASK, DELETE_TASK } from '../actions'
+import { ADD_TASK, DELETE_TASK, FETCH_DATA } from '../actions'
+import request from 'browser-request'
 
 const initialState = {
   projects: [
@@ -25,6 +26,13 @@ const reducer = (state = initialState, action) => {
       return Object.assign({},
         { tasks: state.tasks.filter((i) => i.id !== action.id) }
       )
+    case FETCH_DATA:
+      request('/api/', (er, response, body) => {
+        console.log('request done', body)
+      }
+    )
+      return state
+
     default:
       return state
   }

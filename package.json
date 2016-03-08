@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/marianboda/redux-tryout#readme",
   "dependencies": {
+    "browser-request": "^0.3.3",
+    "koa": "^1.2.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
