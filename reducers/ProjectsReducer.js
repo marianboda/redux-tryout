@@ -1,11 +1,11 @@
-const initialState = [
-  {id: 1, title: 'Project 1'},
-  {id: 2, title: 'ProjectMan 5'},
-  {id: 3, title: 'Siren'}
-]
+import { RECEIVE_DATA } from '../actions'
 
-const ProjectsReducer = (state = initialState, action) => {
-  console.log('ProjectsReducer running')
+const ProjectsReducer = (state = [], action) => {
+  console.log('ProjectsReducer running', action)
+  switch (action.type) {
+    case RECEIVE_DATA:
+      return action.data.projects.slice()
+  }
   return state
 }
 

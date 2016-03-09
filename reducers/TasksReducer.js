@@ -1,14 +1,10 @@
-import { ADD_TASK, DELETE_TASK } from '../actions'
+import { ADD_TASK, DELETE_TASK, RECEIVE_DATA } from '../actions'
 
-const initialState = [
-  {id: 1, title: 'task 1'},
-  {id: 2, title: 'task 2'},
-  {id: 3, title: 'task 3'},
-]
-
-const TasksReducer = (state = initialState, action) => {
+const TasksReducer = (state = [], action) => {
   console.log('TasksReducer running', action)
   switch (action.type) {
+    case RECEIVE_DATA:
+      return action.data.tasks.slice()
     case ADD_TASK:
       let newTasks = state.map((i) => i)
       const newId = (newTasks.length)

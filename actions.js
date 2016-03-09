@@ -3,6 +3,7 @@ import request from 'browser-request'
 export const ADD_TASK = 'ADD_TASK'
 export const DELETE_TASK = 'DELETE_TASK'
 export const FETCH_DATA = 'FETCH_DATA'
+export const RECEIVE_DATA = 'RECEIVE_DATA'
 
 export function addTask(title) {
   return {
@@ -19,11 +20,12 @@ export const deleteTask = (id) => {
 }
 
 export const fetchData = () => {
-  // return {type: FETCH_DATA}
   return (dispatch) => {
     request('/api/', (er, response, data) => {
-      console.log('data arrived', data)
+      dispatch({
+        type: RECEIVE_DATA,
+        data: JSON.parse(data)
+      })
     })
-
   }
 }
