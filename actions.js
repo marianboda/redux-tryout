@@ -5,10 +5,11 @@ export const DELETE_TASK = 'DELETE_TASK'
 export const FETCH_DATA = 'FETCH_DATA'
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 
-export function addTask(title) {
+export function addTask(task) {
   return {
     type: ADD_TASK,
-    title: title
+    title: task.title,
+    projectId: task.projectId,
   }
 }
 

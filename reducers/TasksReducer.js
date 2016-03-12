@@ -6,11 +6,15 @@ const TasksReducer = (state = [], action) => {
     case RECEIVE_DATA:
       return action.data.tasks.slice()
     case ADD_TASK:
-      let newTasks = state.map((i) => i)
+      let newTasks = state.slice()
       const newId = (newTasks.length)
                       ? newTasks[newTasks.length - 1].id + 1
                       : 1
-      newTasks.push({id: newId, title: `${action.title} ${newId}`})
+      newTasks.push({
+        id: newId,
+        title: `${action.title} ${newId}`,
+        projectId: action.projectId,
+      })
       return newTasks
     case DELETE_TASK:
       return state.filter((i) => i.id !== action.id)
