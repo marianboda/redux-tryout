@@ -45,7 +45,7 @@ class TasksPage extends React.Component {
       <h1>Tasks</h1>
       <div>
         <input type="text" value={this.state.text} onChange={this.textChange.bind(this)}/>
-        <button onClick={() => this.props.addTask({text:this.state.text, projectId: this.state.projectId})}>ADD</button><br/>
+        <button onClick={() => this.props.addTask({title:this.state.text, projectId: this.state.projectId})}>ADD</button><br/>
         <select onChange={this.projectIdChange.bind(this)}>
           <option value="0">-</option>
           {this.props.projects.map((i) => <option value={i.id}>{i.title}</option>)}
